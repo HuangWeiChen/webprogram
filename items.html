@@ -267,11 +267,6 @@
                 .filter(category => document.getElementById(category.id).checked)
                 .map(category => category.name);
 
-            if (!netChecked && !lativChecked && !hmChecked && !discountChecked) {
-                displayProducts(products);
-                return;
-            }
-
             const filteredProducts = products.filter(product => {
                 let price;
                 if(product.brand === 'net'||product.brand === '50percent'){
