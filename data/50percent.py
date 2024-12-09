@@ -15,20 +15,20 @@ def fetch_data(url):
     names = soup.find_all("div", class_="products_list fbNo1")
     for name in names:
         data = {}
-        data["品牌"] = "50percent"
-        data["性別"] = s
+        data["brand"] = "50percent"
+        data["gender"] = s
         cloth_name = name.find("div", class_="size_option_wrapper")
         cloth_name = cloth_name.text
         cloth_name = re.sub(r"NT\.\d+", "", cloth_name)
-        data["服飾名稱"] = cloth_name
+        data["clothname"] = cloth_name
         price = name.find("div", class_="size_option_wrapper")
         price = price.span.text
-        data["價格"] = price
+        data["price"] = price
         img_src = (name.a.img)
         img_src = img_src.get("src") 
-        data["圖片網址"] = img_src
+        data["img_src"] = img_src
         buy_href = name.a.get("href")
-        data["購買網址"] = "https://www.50-shop.com/Shop/"+buy_href
+        data["buy_href"] = "https://www.50-shop.com/Shop/"+buy_href
         data_list.append(data)
    
 

@@ -14,20 +14,20 @@ def fetch_data(url):
     names = soup.find_all("li", class_="row_before")
     for name in names:
         data = {}
-        data["品牌"] = "lativ"
-        data["性別"] = s
+        data["brand"] = "lativ"
+        data["gender"] = s
         cloth_name = name.find("div", class_="productname")
         cloth_name = cloth_name.text
-        data["服飾名稱"] = cloth_name
+        data["clothname"] = cloth_name
         price = name.span
         price = price.text
         price = re.search(r"NT\$\d+", price).group()
-        data["價格"] = price
+        data["price"] = price
         img_src = name.find("a", class_="imgd").img.get("data-outfitpic")
         img_src = str(img_src).split(',')[0]
-        data["圖片網址"] = "https://s1.lativ.com.tw"+str(img_src)
+        data["img_src"] = "https://s1.lativ.com.tw"+str(img_src)
         buy_href = name.find("a", class_="imgd").get("href")
-        data["購買網址"] = "https://www.lativ.com.tw/"+buy_href
+        data["buy_href"] = "https://www.lativ.com.tw/"+buy_href
         data_list.append(data)
    
 

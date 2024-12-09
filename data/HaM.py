@@ -35,12 +35,12 @@ for url in urls:
                 price = name.find("span", class_="price regular").text.strip()
                 img_src = name.find("div", class_="image-container").find("img").get("data-altimage")
                 buy_href = name.find("a", class_="item-link").get("href")
-                data["品牌"] = "H&M"
-                data["性別"] = gender
-                data["服飾名稱"] = cloth_name
-                data["價格"] = price
-                data["圖片網址"] = img_src
-                data["購買網址"] = "https://www2.hm.com" + buy_href
+                data["brand"] = "H&M"
+                data["gender"] = gender
+                data["clothname"] = cloth_name
+                data["price"] = price
+                data["img_src"] = img_src
+                data["buy_href"] = "https://www2.hm.com" + buy_href
                 data_list.append(data)
             except AttributeError:
                 continue
