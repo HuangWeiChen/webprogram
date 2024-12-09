@@ -77,7 +77,34 @@
             font-weight: bold;
             color: #e74c3c;
         }
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -250px; /* 隱藏在螢幕外 */
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            color: white;
+            overflow: hidden;
+            transition: left 0.3s ease;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
 
+        /* 當滑鼠移到左側時滑出 */
+        .side-menu:hover {
+            left: 0;
+        }
+
+        /* 輸入框樣式 */
+        .side-menu input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
         /* Responsive Design */
         @media (max-width: 768px) {
             .items {
@@ -99,6 +126,22 @@
                 width: 90%;
             }
         }
+         /* 按鈕樣式 */
+         .button {
+            width: 100%;
+            padding: 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #777;
+        }
     </style>
 </head>
 
@@ -107,8 +150,23 @@
     <div class="items">
         <!-- Product items dynamically added here -->
     </div>
+    <div class="side-menu">
+        <br>價格範圍<br>
+        <input type="number" id="minPrice" placeholder="最小值">    
+        <input type="number" id="maxPrice" placeholder="最大值">
+
+        <br>來源<br>
+        NET<input type="checkbox" id="netCheckbox"><br>
+        LATIV<input type="checkbox" id="lativCheckbox"><br>
+        H&M<input type="checkbox" id="hmCheckbox"><br>
+        50%<input type="checkbox" id="discountCheckbox"><br>
+        
+        <input type="button" value="套用" class="button" id="applyButton"><br>
+    </div>
 
     <script>
+        let products = [];
+
         // Fetch data from net_products.json
         fetch('net_products.json')
             .then(response => {
@@ -117,24 +175,51 @@
                 }
                 return response.json();
             })
-            .then(products => {
-                const container = document.querySelector('.items');
-                products.forEach(product => {
-                    const item = document.createElement('div');
-                    item.className = 'item';
-
-                    item.innerHTML = `
-                        <img src="${product.image}" alt="${product.name}">
-                        <p>${product.name}</p>
-                        <p class="price">${product.price}</p>
-                    `;
-
-                    container.appendChild(item);
-                });
+            .then(fetchedProducts => {
+                products = fetchedProducts;
+                displayProducts(products); // Initially display all products
             })
             .catch(error => {
                 console.error('Error fetching the products:', error);
             });
+
+        // Function to display products
+        function displayProducts(productsToDisplay) {
+            const container = document.querySelector('.items');
+            container.innerHTML = ''; // Clear existing items
+
+            productsToDisplay.forEach(product => {
+                const item = document.createElement('div');
+                item.className = 'item';
+
+                item.innerHTML = `
+                    <img src="${product.圖片網址}" alt="${product.服飾名稱}">
+                    <p>${product.服飾名稱}</p>
+                    <p class="price">${product.價格}</p>
+                    <a href="${product.購買網址}" target="_blank">購買</a>
+                `;
+
+                container.appendChild(item);
+            });
+        }
+
+        // Apply filters when the button is clicked
+        document.getElementById('applyButton').addEventListener('click', function() {
+            const minPrice = parseFloat(document.getElementById('minPrice').value.replace('NT$', '').trim()) || 0;
+            const maxPrice = parseFloat(document.getElementById('maxPrice').value.replace('NT$', '').trim()) || Infinity;
+
+            const lativChecked = document.getElementById('lativCheckbox').checked;
+
+            const filteredProducts = products.filter(product => {
+                const price = parseFloat(product.價格.replace('NT$', '').trim());
+                const isInPriceRange = price >= minPrice && price <= maxPrice;
+                const isFromLativ = lativChecked && product.品牌 === 'lativ';
+
+                return isInPriceRange && isFromLativ;
+            });
+
+            displayProducts(filteredProducts); // Display filtered products
+        });
     </script>
 </body>
 
