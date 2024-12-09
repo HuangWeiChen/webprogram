@@ -219,7 +219,13 @@
             }
 
             const filteredProducts = products.filter(product => {
-                const price = parseFloat(product.price.replace('NT$', '').trim());
+                if(product.brand === 'net'||product.brand === '50percent'){
+                    const price = parseFloat(product.price.replace('NT.', '').trim());
+                }
+                else if(product.brand === 'lativ'||product.brand === 'H&M'){
+                    const price = parseFloat(product.price.replace('NT$', '').trim());
+                }
+                
                 const isInPriceRange = price >= minPrice && price <= maxPrice;
 
                 // Check if the product matches the selected filters
