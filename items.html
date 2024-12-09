@@ -161,6 +161,31 @@
         H&M<input type="checkbox" id="hmCheckbox"><br>
         50%<input type="checkbox" id="discountCheckbox"><br>
         
+        <br>性別<br>
+        男<input type="checkbox" id="maleCheckbox"><br>
+        女<input type="checkbox" id="femaleCheckbox"><br>
+
+        <br>分類<br>
+        牛仔褲<input type="checkbox" id="jeansCheckbox">
+        運動褲<input type="checkbox" id="sportsPantsCheckbox"><br>
+        西裝褲<input type="checkbox" id="suitPantsCheckbox">
+        休閒褲<input type="checkbox" id="casualPantsCheckbox"><br>
+        短褲<input type="checkbox" id="shortsCheckbox">
+        褲子<input type="checkbox" id="pantsCheckbox"><br>
+        polo系列<input type="checkbox" id="poloCheckbox">
+        T恤<input type="checkbox" id="tshirtCheckbox"><br>
+        帽T<input type="checkbox" id="hoodieCheckbox">
+        針織衫<input type="checkbox" id="knitwearCheckbox"><br>
+        襯衫<input type="checkbox" id="shirtCheckbox">
+        大衣<input type="checkbox" id="coatCheckbox"><br>
+        外套<input type="checkbox" id="jacketCheckbox">
+        背心<input type="checkbox" id="vestCheckbox"><br>
+        洋裝<input type="checkbox" id="dressCheckbox">
+        裙子<input type="checkbox" id="skirtCheckbox"><br>
+        上衣<input type="checkbox" id="topCheckbox">
+        襪子<input type="checkbox" id="socksCheckbox"><br>
+        其他<input type="checkbox" id="othersCheckbox"><br>
+
         <input type="button" value="套用" class="button" id="applyButton"><br>
     </div>
 
@@ -213,6 +238,31 @@
             const hmChecked = document.getElementById('hmCheckbox').checked;
             const discountChecked = document.getElementById('discountCheckbox').checked;
 
+            const maleChecked = document.getElementById('maleCheckbox').checked;
+            const femaleChecked = document.getElementById('femaleCheckbox').checked;
+
+            const categories = [
+                { id: 'jeansCheckbox', name: '牛仔褲' },
+                { id: 'sportsPantsCheckbox', name: '運動褲' },
+                { id: 'suitPantsCheckbox', name: '西裝褲' },
+                { id: 'casualPantsCheckbox', name: '休閒褲' },
+                { id: 'shortsCheckbox', name: '短褲' },
+                { id: 'pantsCheckbox', name: '褲子' },
+                { id: 'poloCheckbox', name: 'polo系列' },
+                { id: 'tshirtCheckbox', name: 'T恤' },
+                { id: 'hoodieCheckbox', name: '帽T' },
+                { id: 'knitwearCheckbox', name: '針織衫' },
+                { id: 'shirtCheckbox', name: '襯衫' },
+                { id: 'coatCheckbox', name: '大衣' },
+                { id: 'jacketCheckbox', name: '外套' },
+                { id: 'vestCheckbox', name: '背心' },
+                { id: 'dressCheckbox', name: '洋裝' },
+                { id: 'skirtCheckbox', name: '裙子' },
+                { id: 'topCheckbox', name: '上衣' },
+                { id: 'socksCheckbox', name: '襪子' },
+                { id: 'othersCheckbox', name: '其他' },
+            ];
+            
             if (!netChecked && !lativChecked && !hmChecked && !discountChecked) {
                 displayProducts(products);
                 return;
@@ -238,7 +288,18 @@
                 const isFromHM = hmChecked && product.brand === 'H&M';
                 const isDiscounted = discountChecked && product.brand === '50percent';
 
-                return isInPriceRange && (isFromNet || isFromLativ || isFromHM || isDiscounted);
+                const matchesGender = (!maleChecked && !femaleChecked) || 
+                                      (maleChecked && product.性別 === '男') || 
+                                      (femaleChecked && product.性別 === '女');
+
+                const matchesCategory = selectedCategories.length === 0 || 
+                                        selectedCategories.includes(product.分類);
+
+                return isInPriceRange && 
+                       (isFromNet || isFromLativ || isFromHM || isDiscounted || 
+                        (!netChecked && !lativChecked && !hmChecked && !discountChecked)) &&
+                       matchesGender &&
+                       matchesCategory;
             });
 
             displayProducts(filteredProducts); // Display filtered products
