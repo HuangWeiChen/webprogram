@@ -7607,6 +7607,15 @@
     {
         "brand": "net",
         "gender": "女",
+        "clothname": "FLEECE家居連帽洋裝",
+        "category": "洋裝",
+        "price": "NT.279",
+        "img_src": "https://net.wimg.tw/files/1/products/539209_400_719E6B7B1E8978D.jpg?v=30177",
+        "buy_href": "https://www.net-fashion.net/product/539209"
+    },
+    {
+        "brand": "net",
+        "gender": "女",
         "clothname": "FLEECE印花口袋家居洋裝",
         "category": "洋裝",
         "price": "NT.299",
@@ -7882,15 +7891,6 @@
         "price": "NT.399",
         "img_src": "https://net.wimg.tw/files/1/products/539902_400_803E6B7A1E7B4AB.jpg?v=30177",
         "buy_href": "https://www.net-fashion.net/product/539910"
-    },
-    {
-        "brand": "net",
-        "gender": "女",
-        "clothname": "FLEECE家居褲",
-        "category": "褲子",
-        "price": "NT.212",
-        "img_src": "https://net.wimg.tw/files/1/products/539241_400_215E59296E595A1.jpg?v=30177",
-        "buy_href": "https://www.net-fashion.net/product/539241"
     },
     {
         "brand": "net",
@@ -9047,6 +9047,15 @@
     {
         "brand": "net",
         "gender": "女",
+        "clothname": "雙口袋落肩短版襯衫",
+        "category": "襯衫",
+        "price": "NT.479",
+        "img_src": "https://net.wimg.tw/files/1/products/532521_400_014E6B7B1E781B0.jpg?v=30177",
+        "buy_href": "https://www.net-fashion.net/product/532521"
+    },
+    {
+        "brand": "net",
+        "gender": "女",
         "clothname": "棉彈短版印字綁帶上衣",
         "category": "上衣",
         "price": "NT.279",
@@ -9178,15 +9187,6 @@
         "price": "NT.499",
         "img_src": "https://net.wimg.tw/files/1/products/528377_400_614E6B7BAE781B0E7B6A0.jpg?v=30177",
         "buy_href": "https://www.net-fashion.net/product/528377"
-    },
-    {
-        "brand": "net",
-        "gender": "女",
-        "clothname": "圓領落肩短版針織衫",
-        "category": "針織衫",
-        "price": "NT.429",
-        "img_src": "https://net.wimg.tw/files/1/products/528673_400_014E6B7B1E781B0.jpg?v=30177",
-        "buy_href": "https://www.net-fashion.net/product/528667"
     },
     {
         "brand": "net",

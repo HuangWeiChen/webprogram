@@ -8,6 +8,45 @@ import json
 
 data_list = []
 
+def det(cloth_name):
+    if "牛仔褲" in cloth_name:
+        return "牛仔褲"
+    if "運動褲" in cloth_name:
+        return "運動褲"
+    if "西裝褲" in cloth_name:
+        return "西裝褲"
+    if "休閒褲" in cloth_name:
+        return "休閒褲"
+    if "短褲" in cloth_name:
+        return "短褲"
+    if "褲" in cloth_name:
+        return "褲子"
+    if "polo" in cloth_name:
+        return "polo系列"
+    if "T恤" in cloth_name:
+        return "T恤"
+    if "帽T" in cloth_name:
+        return "帽T"
+    if "針織衫" in cloth_name:
+        return "針織衫"
+    if "襯衫" in cloth_name:
+        return "襯衫"
+    if "大衣" in cloth_name:
+        return "大衣"
+    if "外套" in cloth_name:
+        return "外套"
+    if "背心" in cloth_name:
+        return "背心"
+    if "洋裝" in cloth_name:
+        return "洋裝"
+    if "裙" in cloth_name:
+        return "裙子"
+    if "衣" in cloth_name:
+        return "上衣"
+    if "襪" in cloth_name:
+        return "襪子"
+    return "其他"
+
 options = Options()
 options.add_argument("--disable-gpu")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36")
@@ -38,6 +77,7 @@ for url in urls:
                 data["brand"] = "H&M"
                 data["gender"] = gender
                 data["clothname"] = cloth_name
+                data["category"] = det(cloth_name)
                 data["price"] = price
                 data["img_src"] = img_src
                 data["buy_href"] = "https://www2.hm.com" + buy_href
