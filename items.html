@@ -168,7 +168,7 @@
         let products = [];
 
         // Fetch data from net_products.json
-        fetch('lativ.json')
+        fetch('ALL.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -223,10 +223,10 @@
                 const isInPriceRange = price >= minPrice && price <= maxPrice;
 
                 // Check if the product matches the selected filters
-                const isFromNet = netChecked && product.brand === 'NET';
+                const isFromNet = netChecked && product.brand === 'net';
                 const isFromLativ = lativChecked && product.brand === 'lativ';
                 const isFromHM = hmChecked && product.brand === 'H&M';
-                const isDiscounted = discountChecked && product.brand === '50%';
+                const isDiscounted = discountChecked && product.brand === '50percent';
 
                 return isInPriceRange && (isFromNet || isFromLativ || isFromHM || isDiscounted);
             });
