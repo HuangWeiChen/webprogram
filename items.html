@@ -226,6 +226,9 @@
                 else if(product.brand === 'lativ'||product.brand === 'H&M'){
                     price = parseFloat(product.price.replace('NT$', '').trim());
                 }
+                else{
+                    price=-1;
+                }
                 
                 const isInPriceRange = price >= minPrice && price <= maxPrice;
 
