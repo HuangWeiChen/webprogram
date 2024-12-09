@@ -263,6 +263,10 @@
                 { id: 'othersCheckbox', name: '其他' },
             ];
 
+            const selectedCategories = categories
+                .filter(category => document.getElementById(category.id).checked)
+                .map(category => category.name);
+
             if (!netChecked && !lativChecked && !hmChecked && !discountChecked) {
                 displayProducts(products);
                 return;
