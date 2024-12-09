@@ -262,7 +262,7 @@
                 { id: 'socksCheckbox', name: '襪子' },
                 { id: 'othersCheckbox', name: '其他' },
             ];
-            
+
             if (!netChecked && !lativChecked && !hmChecked && !discountChecked) {
                 displayProducts(products);
                 return;
@@ -289,11 +289,11 @@
                 const isDiscounted = discountChecked && product.brand === '50percent';
 
                 const matchesGender = (!maleChecked && !femaleChecked) || 
-                                      (maleChecked && product.性別 === '男') || 
-                                      (femaleChecked && product.性別 === '女');
+                                      (maleChecked && product.gender === '男') || 
+                                      (femaleChecked && product.gender === '女');
 
                 const matchesCategory = selectedCategories.length === 0 || 
-                                        selectedCategories.includes(product.分類);
+                                        selectedCategories.includes(product.category);
 
                 return isInPriceRange && 
                        (isFromNet || isFromLativ || isFromHM || isDiscounted || 
