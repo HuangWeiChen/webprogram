@@ -213,6 +213,11 @@
             const hmChecked = document.getElementById('hmCheckbox').checked;
             const discountChecked = document.getElementById('discountCheckbox').checked;
 
+            if (!netChecked && !lativChecked && !hmChecked && !discountChecked) {
+                displayProducts(products);
+                return;
+            }
+
             const filteredProducts = products.filter(product => {
                 const price = parseFloat(product.price.replace('NT$', '').trim());
                 const isInPriceRange = price >= minPrice && price <= maxPrice;
