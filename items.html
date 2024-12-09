@@ -168,7 +168,7 @@
         let products = [];
 
         // Fetch data from net_products.json
-        fetch('net_products.json')
+        fetch('lativ.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok ' + response.statusText);
@@ -193,10 +193,10 @@
                 item.className = 'item';
 
                 item.innerHTML = `
-                    <img src="${product.圖片網址}" alt="${product.服飾名稱}">
-                    <p>${product.服飾名稱}</p>
-                    <p class="price">${product.價格}</p>
-                    <a href="${product.購買網址}" target="_blank">購買</a>
+                    <img src="${product.img_src}" alt="${product.clothname}">
+                    <p>${product.clothname}</p>
+                    <p class="price">${product.price}</p>
+                    <a href="${product.buy_href}" target="_blank">購買</a>
                 `;
 
                 container.appendChild(item);
@@ -211,9 +211,9 @@
             const lativChecked = document.getElementById('lativCheckbox').checked;
 
             const filteredProducts = products.filter(product => {
-                const price = parseFloat(product.價格.replace('NT$', '').trim());
+                const price = parseFloat(product.price.replace('NT$', '').trim());
                 const isInPriceRange = price >= minPrice && price <= maxPrice;
-                const isFromLativ = lativChecked && product.品牌 === 'lativ';
+                const isFromLativ = lativChecked && product.brand === 'lativ';
 
                 return isInPriceRange && isFromLativ;
             });
