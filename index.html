@@ -110,6 +110,32 @@
             width: 80px;
             cursor: pointer;
         }
+        .cart{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgb(255, 208, 115);
+            border: none;
+            border-radius: 60%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cart:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .cart img {
+            width: 50px;
+            height: 50px;
+        }
     </style>
 </head>
 <body>
@@ -145,5 +171,15 @@
     <footer>
         <p>設計者:wei yan</p>
     </footer>
+
+    <button class="cart">
+        <img  src="cart.png" onclick="jumpcart()">
+    </button>
+        
+    <script>
+        function jumpcart(){
+            location.href = "cart.html";
+        }
+    </script>
 </body>
 </html>
