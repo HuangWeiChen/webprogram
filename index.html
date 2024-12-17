@@ -136,11 +136,40 @@
             width: 50px;
             height: 50px;
         }
+        .item {
+            background-color: #dfd7d8;
+            border-radius: 8px;
+            margin: 15px;
+            text-align: center;
+            width: 33%;
+            transition: transform 0.3s ease;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .item img {
+            max-height: 600px;
+            max-width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .logo{
+            color:rgba(100, 98, 98, 0.412);
+            position: absolute;
+            left: 0.5vw;
+            top: 0.3vw;
+            width: 150px;
+            height: 150px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>想放個圖片</h1>
+        <img src="logo-Photoroom.png" class="logo">
     <nav>
         <ul>
         <li><strong><a href="file:///C:/Users/user/OneDrive/%E6%A1%8C%E9%9D%A2/%E7%B6%B2%E9%9A%9B/xiao.html">HOME</a></strong></li>
@@ -152,12 +181,26 @@
     </header>
     <main>
         <section class="first">
-            <h2>隨便挑的</h2>
-            <p><strong><a href="file:///C:/Users/user/OneDrive/%E6%A1%8C%E9%9D%A2/%E7%B6%B2%E9%9A%9B/kidding.html">了解更多</a></strong></p>
         </section>
-        
         <section class="second">
-            
+        <div class="item">
+            <img src="test.webp" alt="${product.clothname}">
+            <p>${product.clothname}</p>
+            <p class="price">${product.price}</p>
+            <a href="${product.buy_href}" target="_blank">購買</a>
+        </div> 
+        <div class="item">
+            <img src="test.webp" alt="${product.clothname}">
+            <p>${product.clothname}</p>
+            <p class="price">${product.price}</p>
+            <a href="${product.buy_href}" target="_blank">購買</a>
+        </div>
+        <div class="item">
+            <img src="test.webp" alt="${product.clothname}">
+            <p>${product.clothname}</p>
+            <p class="price">${product.price}</p>
+            <a href="${product.buy_href}" target="_blank">購買</a>
+        </div>   
         </section>
         <section class="message">
             <p><strong>歡迎訂閱我們的電子報!!!  不定期會有好康呦!!!</strong></p>
