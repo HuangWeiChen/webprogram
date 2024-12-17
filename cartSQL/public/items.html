@@ -365,7 +365,9 @@
                 const name = $('#name').val();
                 const pic = $('#pic').val();
                 const price = $('#price').val();
-
+                console.log(name);
+                console.log(pic);
+                console.log(price);
                 $.post('cloth', { name, pic, price }, function (newStudent) {
                     $('#items').append(`<div class="cart-item"  data-price="${cloth.price}">
                                         <img src="${cloth.pic}" alt="商品圖片">
