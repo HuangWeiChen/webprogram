@@ -189,6 +189,7 @@
         <input type="button" value="套用" class="button" id="applyButton"><br>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
         let products = [];
 
@@ -218,10 +219,11 @@
                 item.className = 'item';
 
                 item.innerHTML = `
-                    <img src="${product.img_src}" alt="${product.clothname}">
-                    <p>${product.clothname}</p>
+                    <img  class = "pic" src="${product.img_src}" alt="${product.clothname}">
+                    <p class = "name">${product.clothname}</p>
                     <p class="price">${product.price}</p>
                     <a href="${product.buy_href}" target="_blank">購買</a>
+                    <button type="submit">加入購物清單</button>
                 `;
 
                 container.appendChild(item);
@@ -302,6 +304,53 @@
             });
 
             displayProducts(filteredProducts); // Display filtered products
+        });
+
+        $(document).ready(function () {
+            // 取得學生列表
+            $.get('cart', function (students) {
+                const studentList = $('#items');
+                students.forEach(function (student) {
+                    studentList.append(`<div class="cart-item"  data-price="${cloth.price}">
+                                        <img src="${cloth.pic}" alt="商品圖片">
+                                        <div class="cart-item-details">
+                                            <h2>${cloth.name}</h2>
+                                        </div>
+                                        <div class="cart-item-controls">
+                                            <button onclick="updateQuantity(this, -1)">-</button>
+                                            <span>1</span>
+                                            <button onclick="updateQuantity(this, 1)">+</button>
+                                        </div>
+                                        <div class="cart-item-price">${cloth.price}</div>
+                                        </div>
+                    `);
+                });
+            });
+
+            // 新增學生
+            $('#addbut').submit(function (event) {
+                event.preventDefault(); //避免跳頁
+
+                const name = $('#name').val();
+                const pic = $('#pic').val();
+                const price = $('#price').val();
+
+                $.post('cloth', { name, pic, price }, function (newStudent) {
+                    $('#items').append(`<div class="cart-item"  data-price="${cloth.price}">
+                                        <img src="${cloth.pic}" alt="商品圖片">
+                                        <div class="cart-item-details">
+                                            <h2>${cloth.name}</h2>
+                                        </div>
+                                        <div class="cart-item-controls">
+                                            <button onclick="updateQuantity(this, -1)">-</button>
+                                            <span>1</span>
+                                            <button onclick="updateQuantity(this, 1)">+</button>
+                                        </div>
+                                        <div class="cart-item-price">${cloth.price}</div>
+                                        </div>`);
+                    $('#addbut').reset();
+                });
+            });
         });
     </script>
 </body>

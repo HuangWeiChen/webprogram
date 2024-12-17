@@ -22,13 +22,12 @@ const todoSchema = new mongoose.Schema({
         type: String, //設定該欄位的格式
         required: true //設定該欄位是否必填
     },
-    age: { //是否已完成
-        type: Number,
-        required: true,
-        default: 0//設定預設值
-    },
-    grade: { //新增的時間
+    pic: { //是否已完成
         type: String,
+        required: true,
+    },
+    Price: { //新增的時間
+        type: Number,
         required: true
     },
 })
@@ -60,8 +59,8 @@ router.post("/", async (req, res) => {
     // 從req.body中取出資料
     const todo = new Todo({
         name: req.body.name,
-        age: req.body.age,
-        grade: req.body.grade,
+        pic: req.body.age,
+        price: req.body.grade,
     });
     try {
         // 使用.save()將資料存進資料庫
