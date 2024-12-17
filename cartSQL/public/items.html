@@ -341,7 +341,7 @@
             // 取得學生列表
             $.get('cart', function (students) {
                 const studentList = $('#items');
-                students.forEach(function (student) {
+                students.forEach(function (cloth) {
                     studentList.append(`<div class="cart-item"  data-price="${cloth.price}">
                                         <img src="${cloth.pic}" alt="商品圖片">
                                         <div class="cart-item-details">
