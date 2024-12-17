@@ -68,6 +68,8 @@ router.post("/", async (req, res) => {
         // 回傳status:201代表新增成功 並回傳新增的資料
         res.status(201).json(newTodo);
     } catch (err) {
+        console.error("Error:", err.message);
+
         // 錯誤訊息發生回傳400 代表使用者傳入錯誤的資訊
         res.status(400).json({ message: err.message })
     }

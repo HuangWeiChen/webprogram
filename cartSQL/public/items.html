@@ -339,7 +339,7 @@
 
         $(document).ready(function () {
             // 取得學生列表
-            $.get('cart', function (students) {
+            $.get('cloth', function (students) {
                 const studentList = $('#items');
                 students.forEach(function (student) {
                     studentList.append(`<div class="cart-item"  data-price="${cloth.price}">
