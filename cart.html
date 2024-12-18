@@ -205,9 +205,6 @@
             cart.forEach(item => {
                 const cartItem = document.createElement('div');
                 cartItem.className = 'cart-item';
-                item.price = parseInt(item.price.replace(/[^\d]/g, ''), 10); // 儲存為純數值
-                // itemPrice.textContent = `NT$${price * quantity}`;           // 顯示格式化價格
-
                 cartItem.setAttribute('data-price', item.price);
                 cartItem.innerHTML = `
                     <img src="${item.img}" alt="${item.name}">
