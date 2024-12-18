@@ -167,6 +167,21 @@
             color: #666;
             font-size: 1em;
         }
+        .delete-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .delete-btn:hover {
+            background-color: #c0392b;
+        }
+
     </style>
     <script>
         function updateQuantity(button, change) {
@@ -196,6 +211,9 @@
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartContainer = document.querySelector('.cart-items');
 
+            // 清空購物車內容
+            cartContainer.innerHTML = '';
+
             if (cart.length === 0) {
                 cartContainer.innerHTML = '<p class="empty-message">您的購物車是空的</p>';
                 document.querySelector('.total').style.display = 'none';
@@ -217,12 +235,28 @@
                         <button onclick="updateQuantity(this, 1)">+</button>
                     </div>
                     <div class="cart-item-price">NT$${item.price}</div>
+                    <button class="delete-btn" onclick="removeFromCart('${item.name}')">刪除</button>
                 `;
                 cartContainer.appendChild(cartItem);
             });
 
             updateTotal();
         }
+
+        function removeFromCart(itemName) {
+            // 獲取購物車數據
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // 過濾掉要刪除的商品
+            cart = cart.filter(item => item.name !== itemName);
+
+            // 更新 localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // 重新加載購物車內容
+            loadCart();
+        }
+
 
         document.addEventListener('DOMContentLoaded', loadCart);
     </script>
@@ -239,11 +273,7 @@
     </header>
 
     <div class="container">
-        <div class="cart-items">
-            <!-- Example item -->
-            
-            <!-- Add more items here -->
-        </div>
+        <div class="cart-items"></div>
 
         <!-- Total -->
         <div class="total">
