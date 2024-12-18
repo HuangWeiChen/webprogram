@@ -207,6 +207,7 @@
                 cartItem.className = 'cart-item';
                 item.price = parseInt(item.price.replace(/[^\d]/g, ''), 10); // 儲存為純數值
                 itemPrice.textContent = `NT$${price * quantity}`;           // 顯示格式化價格
+
                 cartItem.setAttribute('data-price', item.price);
                 cartItem.innerHTML = `
                     <img src="${item.img}" alt="${item.name}">
@@ -218,7 +219,7 @@
                         <span>1</span>
                         <button onclick="updateQuantity(this, 1)">+</button>
                     </div>
-                    <div class="cart-item-price">${item.price}</div>
+                    <div class="cart-item-price">NT$${item.price}</div>
                 `;
                 cartContainer.appendChild(cartItem);
             });
