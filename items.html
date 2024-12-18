@@ -335,12 +335,13 @@
 
             displayProducts(filteredProducts); // Display filtered products
         });
-        function addToCart(product) {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${product.name} 已加入購物車！`);
-        }
+        // function addToCart(product) {
+        //     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        //     cart.push(product);
+        //     localStorage.setItem('cart', JSON.stringify(cart));
+        //     alert(`${product.name} 已加入購物車！`);
+        // }
+        // item.querySelector('button').addEventListener('click', () => addToCart(product));
     </script>
 </body>
 
