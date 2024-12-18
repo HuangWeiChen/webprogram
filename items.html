@@ -251,6 +251,7 @@
                     <p>${product.clothname}</p>
                     <p class="price">${product.price}</p>
                     <a href="${product.buy_href}" target="_blank">購買</a>
+                    <button onclick = 'addToCart({name: '${product.clothname}', img: '${product.img_src}',price: '${product.price}',buy_href: '${product.buy_href}'})>加入購物清單</button>
                 `;
 
                 container.appendChild(item);
@@ -334,6 +335,12 @@
 
             displayProducts(filteredProducts); // Display filtered products
         });
+        function addToCart(product) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} 已加入購物車！`);
+        }
     </script>
 </body>
 
