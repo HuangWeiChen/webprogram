@@ -223,6 +223,7 @@
             cart.forEach(item => {
                 const cartItem = document.createElement('div');
                 cartItem.className = 'cart-item';
+                item.price = parseInt(item.price.replace(/[^\d]/g, ''), 10);
                 cartItem.setAttribute('data-price', item.price);
                 cartItem.innerHTML = `
                     <img src="${item.img}" alt="${item.name}">
