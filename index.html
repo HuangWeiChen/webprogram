@@ -77,14 +77,6 @@
             border-radius: 5px;
 
         }
-        .second{
-            color:black;
-            height:85vh;
-            display:flex;
-            flex-direction:row;
-            align-items: center;
-            justify-content:space-around;
-        }
         
         .message{
             padding: 60px 0;
@@ -136,35 +128,66 @@
             width: 50px;
             height: 50px;
         }
+        .second {
+            color: black;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
         .item {
-            background-color: #dfd7d8;
-            border-radius: 8px;
-            margin: 15px;
-            text-align: center;
-            width: 33%;
-            transition: transform 0.3s ease;
+            background-color: #fff;
+            border-radius: 12px;
             padding: 15px;
+            width: 300px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
+
+        .item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
         .item img {
-            max-height: 600px;
             max-width: 100%;
-            border-radius: 8px;
+            border-radius: 12px;
             transition: transform 0.3s ease;
         }
+
+        .item img:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .item p {
+            margin: 10px 0;
+        }
+
         .price {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
             color: #e74c3c;
+            margin: 10px 0;
         }
-        .logo{
-            color:rgba(100, 98, 98, 0.412);
-            position: absolute;
-            left: 0.5vw;
-            top: 0.3vw;
-            width: 150px;
-            height: 150px;
+
+        .item a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: linear-gradient(45deg, #f39c12, #e74c3c);
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
+
+        .item a:hover {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            transform: scale(1.1);
+        }
+
     </style>
 </head>
 <body>
@@ -185,13 +208,13 @@
         </section>
         <section class="second">
         <div class="item">
-            <img src="//lp2.hm.com/hmgoepprod?set=source[/75/22/7522fbc26b4406ca7c9595707ec880ec722606d4.jpg],origin[dam],category[],type[LOOKBOOK],res[z],hmver[1]&call=url[file:/product/main]" alt="推薦商品">
+            <img src="//lp2.hm.com/hmgoepprod?set=source[/75/22/7522fbc26b4406ca7c9595707ec880ec722606d4.jpg]" alt="推薦商品">
             <p>寬鬆剪裁泰迪熊拉鍊連帽外套</p>
             <p class="price">NT$1799</p>
             <a href="https://www2.hm.com/zh_asia3/productpage.1254356001.html" target="_blank">購買</a>
-        </div> 
+        </div>
         <div class="item">
-            <img src="//lp2.hm.com/hmgoepprod?set=source[/f9/a7/f9a7e31ab9249f78885facf4b00504d3b9980cab.jpg],origin[dam],category[],type[LOOKBOOK],res[z],hmver[1]&call=url[file:/product/main]" alt="推薦商品">
+            <img src="//lp2.hm.com/hmgoepprod?set=source[/f9/a7/f9a7e31ab9249f78885facf4b00504d3b9980cab.jpg]" alt="推薦商品">
             <p>加大碼圖案平紋上衣</p>
             <p class="price">NT$649</p>
             <a href="https://www2.hm.com/zh_asia3/productpage.1224098004.html" target="_blank">購買</a>
@@ -201,8 +224,9 @@
             <p>後剪接刺繡大學T</p>
             <p class="price">NT$459</p>
             <a href="https://www.net-fashion.net/product/560908" target="_blank">購買</a>
-        </div>   
+        </div>
         </section>
+        
         <!-- <section class="message">
             <p><strong>歡迎訂閱我們的電子報!!!  不定期會有好康呦!!!</strong></p>
             <div>
