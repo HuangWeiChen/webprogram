@@ -55,7 +55,32 @@
         .item:hover {
             transform: scale(1.05);
         }
+        .shop{
+            position: fixed;
+            bottom: 120px;
+            right: 20px;
+            background-color: rgb(226, 155, 169);
+            border: none;
+            border-radius: 60%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
+        .shop:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .shop img {
+            width: 100px;
+            height: 100px;
+        }
         img {
             max-height: 300px;
             max-width: 100%;
@@ -177,6 +202,9 @@
     <div class="items">
         <!-- Product items dynamically added here -->
     </div>
+    <button class="shop">
+        <img  src="shop.png" onclick="jumpshop()">
+    </button>
     <button class="cart">
         <img  src="cart.png" onclick="jumpcart()">
     </button>
@@ -218,7 +246,7 @@
 
         <input type="button" value="套用" class="button" id="applyButton"><br>
     </div>
-
+    
     <script>
         let products = [];
 
@@ -257,6 +285,9 @@
 
                 container.appendChild(item);
             });
+        }
+        function jumpshop(){
+            location.href = "items.html";
         }
         function jumpcart(){
             location.href = "cart.html";
