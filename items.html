@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Basic Reset */
         body, h1, p {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto Slab', serif;
         }
 
         body {
@@ -250,7 +251,7 @@
                     <img src="${product.img_src}" alt="${product.clothname}">
                     <p>${product.clothname}</p>
                     <p class="price">${product.price}</p>
-                    <a href="${product.buy_href}" target="_blank">購買</a>
+                    <a href="${product.buy_href}" target="_blank">官網購買</a>
                     <button onclick = 'addToCart({name: "${product.clothname}", img: "${product.img_src}",price: "${product.price}",buy_href: "${product.buy_href}"})'>加入購物清單</button>
                 `;
 
