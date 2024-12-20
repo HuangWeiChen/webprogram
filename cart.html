@@ -292,7 +292,8 @@
                 const name = item.querySelector('.cart-item-details h2').textContent;
                 const price = parseInt(item.getAttribute('data-price'));
                 const quantity = parseInt(item.querySelector('.cart-item-controls span').textContent);
-                cartItems.push({ name, price, quantity });
+                const imageUrl = item.querySelector('img').src; // 提取圖片的 URL
+                cartItems.push({ name, price, quantity, imageUrl });
             });
 
             const webhookUrl = 'https://discord.com/api/webhooks/1319565401872662583/_hDHHGau08ueOxqMNCg3-kG-nX2PkEybiJVnEXPWwzQeLlQXxmUU7QW0yCTdp34ncoMu'; // 替換Discord Webhook URL
@@ -305,7 +306,10 @@
                         { name: '單價', value: `NT$${item.price}`, inline: true },
                         { name: '數量', value: `${item.quantity}`, inline: true },
                         { name: '總價', value: `NT$${item.price * item.quantity}`, inline: true }
-                    ]
+                    ],
+                    image: {
+                        url: item.imageUrl // 這是商品圖片的 URL
+                    }
                 }))
             };
 
