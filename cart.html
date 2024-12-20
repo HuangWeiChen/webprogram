@@ -279,14 +279,21 @@
 
         <!-- Total -->
         <div class="total">
-            總額: <span>NT$1000</span>
+            <input id="webhook-url" type="url" placeholder="輸入 Discord Webhook URL" style="width: 100%; margin-top: 10px; padding: 10px;">
             <button id="upload-to-discord">上傳到 Discord</button>
+            總額: <span>NT$1000</span>
         </div>
 
 
     </div>
     <script>
         document.getElementById('upload-to-discord').addEventListener('click', function () {
+            const webhookUrl = document.getElementById('webhook-url').value.trim();
+        
+            if (!webhookUrl) {
+                alert('請輸入有效的 Webhook URL！');
+                return;
+            }
             const cartItems = [];
             document.querySelectorAll('.cart-item').forEach(item => {
                 const name = item.querySelector('.cart-item-details h2').textContent;
@@ -295,8 +302,6 @@
                 const imageUrl = item.querySelector('img').src; // 提取圖片的 URL
                 cartItems.push({ name, price, quantity, imageUrl });
             });
-
-            const webhookUrl = 'https://discord.com/api/webhooks/1319565401872662583/_hDHHGau08ueOxqMNCg3-kG-nX2PkEybiJVnEXPWwzQeLlQXxmUU7QW0yCTdp34ncoMu'; // 替換Discord Webhook URL
 
             const payload = {
                 content: '購物車清單如下：',
