@@ -20,12 +20,15 @@
             padding: 0;
             margin: 0;
         }
-        footer{
+        footer {
+            position: relative;
+            clear: both; /* 確保 footer 不被其他浮動元素影響 */
+            margin-top: 20px; /* 增加 footer 與內容間距 */
+            padding: 15px 10px;
             background-color: rgb(244, 241, 238);
-            border:3px rgb(158, 118, 138) dashed;
-            padding: 30px 20px 30px 40px;
-            margin:30px;
+            border: 3px rgb(158, 118, 138) dashed;
         }
+
         section{
             background-color: rgb(244, 241, 238);
             padding: 30px 20px 30px 40px;
@@ -334,8 +337,10 @@
             }
 
             footer {
-                padding: 15px 10px; /* 減少 footer 內距 */
-                margin: 15px; /* 減少 footer 外距 */
+                position: fixed; /* 小螢幕固定在底部 */
+                bottom: 0;
+                width: 100%;
+                z-index: 10;
             }
         }
 
