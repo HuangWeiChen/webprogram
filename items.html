@@ -78,8 +78,8 @@
         }
 
         .shop img {
-            width: 100px;
-            height: 100px;
+            width: 50px;
+            height: 50px;
         }
         img {
             max-height: 300px;
@@ -203,7 +203,7 @@
         <!-- Product items dynamically added here -->
     </div>
     <button class="shop">
-        <img  src="shop.png" onclick="jumpshop()">
+        <img  src="home.webp" onclick="jumphome()" >
     </button>
     <button class="cart">
         <img  src="cart.png" onclick="jumpcart()">
@@ -286,8 +286,8 @@
                 container.appendChild(item);
             });
         }
-        function jumpshop(){
-            location.href = "items.html";
+        function jumphome(){
+            location.href = "index.html";
         }
         function jumpcart(){
             location.href = "cart.html";
