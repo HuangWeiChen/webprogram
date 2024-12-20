@@ -239,6 +239,7 @@
         <!-- Total -->
         <div class="total">
             總額: <span>NT$1000</span>
+            <button id="upload-to-discord">上傳到 Discord</button>
         </div>
 
 
@@ -246,7 +247,7 @@
     <script>
         $(document).ready(function () {
             // 取得學生列表
-            $.get('cart', function (cloth) {
+            /*$.get('cart', function (cloth) {
                 const clothlist = $('#cart-items');
                 cloth.forEach(function (student) {
                     clothlist.append(`<div class="cart-item"  data-price="${cloth.price}">
@@ -263,7 +264,7 @@
                                         </div>
                     `);
                 });
-            });
+            });*/
 
             // 新增學生
             $('#addbut').submit(function (event) {
@@ -289,6 +290,46 @@
                     $('#addbut').reset();
                 });
             });
+            document.getElementById('upload-to-discord').addEventListener('click', function () {
+            const cartItems = [];
+            document.querySelectorAll('.cart-item').forEach(item => {
+                const name = item.querySelector('.cart-item-details h2').textContent;
+                const price = parseInt(item.getAttribute('data-price'));
+                const quantity = parseInt(item.querySelector('.cart-item-controls span').textContent);
+                cartItems.push({ name, price, quantity });
+            });
+
+            const webhookUrl = 'https://discord.com/api/webhooks/1319565401872662583/_hDHHGau08ueOxqMNCg3-kG-nX2PkEybiJVnEXPWwzQeLlQXxmUU7QW0yCTdp34ncoMu'; // 替換為您的 Discord Webhook URL
+
+            const payload = {
+                content: '購物車清單如下：',
+                embeds: cartItems.map(item => ({
+                    title: item.name,
+                    fields: [
+                        { name: '單價', value: `NT$${item.price}`, inline: true },
+                        { name: '數量', value: `${item.quantity}`, inline: true },
+                        { name: '總價', value: `NT$${item.price * item.quantity}`, inline: true }
+                    ]
+                }))
+            };
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('已成功上傳到 Discord！');
+                } else {
+                    alert('上傳失敗，請確認 Webhook URL 是否正確。');
+                }
+            })
+            .catch(error => {
+                console.error('Error uploading to Discord:', error);
+                alert('上傳過程中發生錯誤！');
+            });
+        });
         });
     </script>
     <!-- Message for empty cart -->
