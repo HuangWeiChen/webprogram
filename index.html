@@ -21,12 +21,15 @@
             margin: 0;
         }
         footer {
-            position: relative;
             clear: both; /* 確保 footer 不被其他浮動元素影響 */
             margin-top: 20px; /* 增加 footer 與內容間距 */
             padding: 15px 10px;
             background-color: rgb(244, 241, 238);
             border: 3px rgb(158, 118, 138) dashed;
+            position: fixed; /* 小螢幕固定在底部 */
+            bottom: 0;
+            width: 100%;
+            z-index: 10;
         }
 
         section{
@@ -134,6 +137,7 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 20;
         }
 
         .cart:hover {
@@ -160,6 +164,7 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 20;
         }
 
         .shop:hover {
@@ -336,13 +341,6 @@
             .cart img, .shop img {
                 width: 40px; /* 縮小圖片 */
                 height: 40px;
-            }
-
-            footer {
-                position: fixed; /* 小螢幕固定在底部 */
-                bottom: 0;
-                width: 100%;
-                z-index: 10;
             }
         }
 
