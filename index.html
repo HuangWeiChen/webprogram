@@ -277,6 +277,22 @@
             width: 150px;
             height: 150px;
         }
+        @media (max-width: 600px) {
+            .cart-item {
+                flex-direction: column;
+                gap: 15px; /* 增加垂直間距 */
+            }
+            .cart-item img {
+                max-height: 120px; /* 進一步縮小圖片 */
+            }
+            .cart-item-details {
+                font-size: 0.8rem;
+            }
+            .total {
+                font-size: 1rem;
+            }
+        }
+
     </style>
 </head>
 <body>
