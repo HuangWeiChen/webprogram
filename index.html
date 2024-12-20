@@ -277,19 +277,65 @@
             width: 150px;
             height: 150px;
         }
+        
         @media (max-width: 600px) {
-            .cart-item {
-                flex-direction: column;
-                gap: 15px; /* 增加垂直間距 */
+            body {
+                font-size: 14px; /* 縮小全局字體大小 */
             }
-            .cart-item img {
-                max-height: 120px; /* 進一步縮小圖片 */
+
+            header {
+                height: 60px; /* 調整 header 高度 */
             }
-            .cart-item-details {
-                font-size: 0.8rem;
+
+            header h1 {
+                font-size: 18px; /* 縮小標題字體 */
+                top: 5px; /* 調整位置 */
             }
-            .total {
-                font-size: 1rem;
+
+            header ul {
+                right: 2vw; /* 調整導航菜單間距 */
+                top: 2vw;
+            }
+
+            header li {
+                margin-right: 3vw; /* 縮小導航項目間距 */
+            }
+
+            .first {
+                margin-top: 70px; /* 調整 section 距離 header */
+                height: 200px; /* 減少高度 */
+            }
+
+            .second {
+                padding: 10px;
+                gap: 10px; /* 減少項目間距 */
+            }
+
+            .item {
+                width: 100%; /* 調整商品項目寬度 */
+                padding: 10px; /* 減少內邊距 */
+            }
+
+            .item img {
+                height: auto;
+                max-height: 200px; /* 限制圖片高度 */
+            }
+
+            .cart, .shop {
+                width: 60px; /* 縮小按鈕大小 */
+                height: 60px;
+                bottom: 15px;
+                right: 15px;
+            }
+
+            .cart img, .shop img {
+                width: 40px; /* 縮小圖片 */
+                height: 40px;
+            }
+
+            footer {
+                padding: 15px 10px; /* 減少 footer 內距 */
+                margin: 15px; /* 減少 footer 外距 */
             }
         }
 
