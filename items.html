@@ -12,9 +12,6 @@
 <body>
     <h1>Our Products</h1>
     <div class="alert-overlay"></div>
-    <div>
-        <img src = '' alt="" class="alert-icon" id="alert-icon">
-    </div>
     <div class="custom-alert">
         <p id="alert-message">自定義彈窗訊息！</p>
         <button id="alert-confirm-btn">確定</button>
@@ -101,7 +98,7 @@
                     <p>${product.clothname}</p>
                     <p class="price">${product.price}</p>
                     <a href="${product.buy_href}" target="_blank">官網購買</a>
-                    <button  id = "add" onclick = 'addToCart({name: "${product.clothname}", img: "${product.img_src}",price: "${product.price}",buy_href: "${product.buy_href}"})'>加入購物清單</button>
+                    <button onclick = 'addToCart({name: "${product.clothname}", img: "${product.img_src}",price: "${product.price}",buy_href: "${product.buy_href}"})'>加入購物清單</button>
                 `;
 
                 container.appendChild(item);
@@ -188,15 +185,13 @@
 
             displayProducts(filteredProducts); // Display filtered products
         });
-        function customAlert(message, img) {
+        function customAlert(message) {
             const overlay = document.querySelector('.alert-overlay');
             const alertBox = document.querySelector('.custom-alert');
             const alertMessage = document.getElementById('alert-message');
             const confirmBtn = document.getElementById('alert-confirm-btn');
-            const pic = document.getElementById('alert-icon');
             // 設定彈窗訊息
             alertMessage.textContent = message;
-            pic.src = img;
             // 顯示彈窗和遮罩層
             overlay.style.display = 'block';
             alertBox.style.display = 'block';
@@ -217,9 +212,9 @@
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.push(product);
             localStorage.setItem('cart', JSON.stringify(cart));
-            customAlert(`${product.name} 已加入購物車！`, `${product.pic}`);
+            customAlert(`${product.name} 已加入購物車！`);
         }
-        item.getElementById('add').addEventListener('click', () => addToCart(product));
+        item.querySelector('button').addEventListener('click', () => addToCart(product));
     </script>
 </body>
 
