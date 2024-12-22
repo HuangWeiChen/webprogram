@@ -5,207 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products</title>
+    <link rel="stylesheet" href="items.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Basic Reset */
-        body, h1, p {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto Slab', serif;
-        }
-
-        body {
-            background-color: rgb(244, 241, 238);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        h1 {
-            text-align: center;
-            margin: 20px 0;
-            font-size: 36px;
-            color: #2c3e50;
-        }
-
-        /* Container for products */
-        .items {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin: 20px auto;
-            padding: 10px;
-            max-width: 1200px;
-            background-color: #ecf0f1;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Styling each product item */
-        .item {
-            background-color: rgb(244, 241, 238);
-            border-radius: 8px;
-            margin: 15px;
-            text-align: center;
-            width: 250px;
-            transition: transform 0.3s ease;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .item:hover {
-            transform: scale(1.05);
-        }
-        .shop{
-            position: fixed;
-            bottom: 120px;
-            right: 20px;
-            background-color: rgb(226, 155, 169);
-            border: none;
-            border-radius: 60%;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .shop:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .shop img {
-            width: 50px;
-            height: 50px;
-        }
-        img {
-            max-height: 300px;
-            max-width: 100%;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        img:hover {
-            cursor: pointer;
-            transform: scale(1.1);
-        }
-
-        p {
-            margin: 10px 0;
-            color: #34495e;
-        }
-
-        .price {
-            font-size: 18px;
-            font-weight: bold;
-            color: #e74c3c;
-        }
-        .side-menu {
-            position: fixed;
-            top: 0;
-            left: -250px; /* 隱藏在螢幕外 */
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            color: white;
-            overflow: hidden;
-            transition: left 0.3s ease;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* 當滑鼠移到左側時滑出 */
-        .side-menu:hover {
-            left: 0;
-        }
-
-        /* 輸入框樣式 */
-        .side-menu input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .cart{
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgb(255, 208, 115);
-            border: none;
-            border-radius: 60%;
-            width: 80px;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .cart:hover {
-            transform: scale(1.1);
-            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .cart img {
-            width: 50px;
-            height: 50px;
-        }
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            header {
-                height: 60px;
-            }
-            h1 {
-                font-size: 1.5em;
-                top: 10px;
-            }
-            header ul {
-                right: 2vw;
-                top: 2vw;
-            }
-            .container {
-                width: 100%;
-                margin: 0;
-                border-radius: 0;
-                box-shadow: none;
-            }
-            .cart-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .cart-item img {
-                max-width: 100%;
-                max-height: 150px;
-            }
-            .cart-item-details {
-                margin: 10px 0;
-            }
-            .cart-item-controls {
-                margin-top: 10px;
-                justify-content: center;
-            }
-            .cart-item-price {
-                margin-top: 10px;
-                font-size: 0.9em;
-            }
-            .total {
-                font-size: 1em;
-                text-align: center;
-            }
-        }
-    </style>
 </head>
 
 <body>
     <h1>Our Products</h1>
+    <div class="alert-overlay"></div>
+    <div class="custom-alert">
+        <p id="alert-message">這是一個自定義的彈窗訊息！</p>
+        <button id="alert-confirm-btn">確定</button>
+    </div>
+
     <div class="items">
         <!-- Product items dynamically added here -->
     </div>
@@ -374,11 +185,36 @@
 
             displayProducts(filteredProducts); // Display filtered products
         });
+        function customAlert(message) {
+            const overlay = document.querySelector('.alert-overlay');
+            const alertBox = document.querySelector('.custom-alert');
+            const alertMessage = document.getElementById('alert-message');
+            const confirmBtn = document.getElementById('alert-confirm-btn');
+
+            // 設定彈窗訊息
+            alertMessage.textContent = message;
+
+            // 顯示彈窗和遮罩層
+            overlay.style.display = 'block';
+            alertBox.style.display = 'block';
+
+            // 添加關閉事件
+            confirmBtn.onclick = closeAlert;
+        }
+
+        function closeAlert() {
+            const overlay = document.querySelector('.alert-overlay');
+            const alertBox = document.querySelector('.custom-alert');
+
+            overlay.style.display = 'none';
+            alertBox.style.display = 'none';
+        }
+
         function addToCart(product) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.push(product);
             localStorage.setItem('cart', JSON.stringify(cart));
-            alert(`${product.name} 已加入購物車！`);
+            customAlert(`${product.name} 已加入購物車！`);
         }
         item.querySelector('button').addEventListener('click', () => addToCart(product));
     </script>

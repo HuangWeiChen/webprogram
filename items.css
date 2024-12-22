@@ -1,0 +1,236 @@
+body, h1, p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+}
+
+body {
+    background-color: rgb(244, 241, 238);
+    color: #333;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 36px;
+    color: #2c3e50;
+}
+
+/* Container for products */
+.items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 1200px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling each product item */
+.item {
+    background-color: rgb(244, 241, 238);
+    border-radius: 8px;
+    margin: 15px;
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+.shop{
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+    background-color: rgb(226, 155, 169);
+    border: none;
+    border-radius: 60%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shop:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.shop img {
+    width: 50px;
+    height: 50px;
+}
+img {
+    max-height: 300px;
+    max-width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+p {
+    margin: 10px 0;
+    color: #34495e;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e74c3c;
+}
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* 隱藏在螢幕外 */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    overflow: hidden;
+    transition: left 0.3s ease;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 當滑鼠移到左側時滑出 */
+.side-menu:hover {
+    left: 0;
+}
+
+/* 輸入框樣式 */
+.side-menu input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.cart{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(255, 208, 115);
+    border: none;
+    border-radius: 60%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cart:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cart img {
+    width: 50px;
+    height: 50px;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    .item {
+        width: 90%;
+    }
+}
+ /* 按鈕樣式 */
+ .button {
+    width: 100%;
+    padding: 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #777;
+}
+/* 背景遮罩 */
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+/* 彈窗容器 */
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+    display: none;
+    width: 300px;
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+/* 彈窗文字 */
+.custom-alert p {
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* 按鈕樣式 */
+.custom-alert button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.custom-alert button:hover {
+    background-color: #0056b3;
+}
