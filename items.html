@@ -13,7 +13,7 @@
     <h1>Our Products</h1>
     <div class="alert-overlay"></div>
     <div>
-        <img src = '' alt="item_image" class="alert-icon" id=:alert-icon;
+        <img src = '' alt="" class="alert-icon" id="alert-icon";
     </div>
     <div class="custom-alert">
         <p id="alert-message">自定義彈窗訊息！</p>
@@ -217,7 +217,7 @@
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart.push(product);
             localStorage.setItem('cart', JSON.stringify(cart));
-            customAlert(`${product.name} 已加入購物車！`, `${priduct.pic}`);
+            customAlert(`${product.name} 已加入購物車！`, `${product.pic}`);
         }
         item.querySelector('button').addEventListener('click', () => addToCart(product));
     </script>
