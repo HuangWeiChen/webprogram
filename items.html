@@ -101,7 +101,7 @@
                     <p>${product.clothname}</p>
                     <p class="price">${product.price}</p>
                     <a href="${product.buy_href}" target="_blank">官網購買</a>
-                    <button onclick = 'addToCart({name: "${product.clothname}", img: "${product.img_src}",price: "${product.price}",buy_href: "${product.buy_href}"})'>加入購物清單</button>
+                    <button  id = "add" onclick = 'addToCart({name: "${product.clothname}", img: "${product.img_src}",price: "${product.price}",buy_href: "${product.buy_href}"})'>加入購物清單</button>
                 `;
 
                 container.appendChild(item);
@@ -219,7 +219,7 @@
             localStorage.setItem('cart', JSON.stringify(cart));
             customAlert(`${product.name} 已加入購物車！`, `${product.pic}`);
         }
-        item.querySelector('button').addEventListener('click', () => addToCart(product));
+        item.getElementById('add').addEventListener('click', () => addToCart(product));
     </script>
 </body>
 
