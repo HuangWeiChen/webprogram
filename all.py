@@ -181,7 +181,8 @@ def lativfetch_data(url, s):
         data["img_src"] = "https://s1.lativ.com.tw"+str(img_src)
         buy_href = name.find("a", class_="imgd").get("href")
         data["buy_href"] = "https://www.lativ.com.tw/"+buy_href
-        data_list.append(data)
+        if data["img_src"] != "https://s1.lativ.com.twNone" :
+            data_list.append(data)
 def lativ():
     url = [["https://www.lativ.com.tw/MEN", "男"],["https://www.lativ.com.tw/WOMEN", "女"]]
     for i in url:
