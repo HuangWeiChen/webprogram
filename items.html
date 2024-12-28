@@ -78,7 +78,7 @@
             })
             .then(fetchedProducts => {
                 products = fetchedProducts;
-                //displayProducts(products); // Initially display all products
+                displayProducts(products); // Initially display all products
             })
             .catch(error => {
                 console.error('Error fetching the products:', error);
