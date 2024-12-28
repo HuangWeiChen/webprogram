@@ -288,3 +288,18 @@ p {
     transform: translateY(-3px);
     box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.4);
 }
+.brandname {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffeb3b;
+    color: #333;
+    font-family: 'Playfair Display', serif;
+    font-size: 1em;
+    font-weight: 700;
+    padding: 0.5em;
+    text-transform: uppercase;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
