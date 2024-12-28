@@ -289,17 +289,13 @@ p {
     box-shadow: 0px 5px 15px rgba(0, 123, 255, 0.4);
 }
 .brandname {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #ffeb3b;
-    color: #333;
-    font-family: 'Playfair Display', serif;
-    font-size: 1em;
-    font-weight: 700;
-    padding: 0.5em;
-    text-transform: uppercase;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    z-index: 1;
+    font-family: 'Playfair Display', serif; /* 使品牌名稱看起來更優雅 */
+    font-size: 1.2em; /* 調整字體大小，讓品牌名更突出 */
+    font-weight: 700; /* 使用粗體來強調 */
+    color: #333; /* 深灰色，易於閱讀 */
+    text-align: center; /* 將文字置中 */
+    margin-bottom: 0.5em; /* 與其他元素保持適當間距 */
+    text-transform: uppercase; /* 全部大寫，讓品牌名稱更明顯 */
+    letter-spacing: 0.05em; /* 增加字母間距，提升閱讀體驗 */
 }
+
