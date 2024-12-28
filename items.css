@@ -302,4 +302,6 @@ p {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     z-index: 1;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
+
